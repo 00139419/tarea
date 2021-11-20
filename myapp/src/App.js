@@ -84,8 +84,21 @@ class App extends React.Component {
     this.setState({ data: arreglo, modalActualizar: false });
   };
 
-
   
+  eliminar = (dato) => {
+    var contador = 0;
+    var arreglo = this.state.data;
+    arreglo.map((registro) => {
+      if (dato.id == registro.id) {
+        arreglo.splice(contador, 1);
+      }
+      contador++;
+    });
+    this.setState({ data: arreglo, modalActualizar: false });
+  };
+
+
+
   render() {
     return (
       <>
