@@ -68,6 +68,24 @@ class App extends React.Component {
     lista.push(valorNuevo);
     this.setState({ modalInsertar: false, data: lista });
   };
+
+
+  
+  editar = (dato) => {
+    var contador = 0;
+    var arreglo = this.state.data;
+    arreglo.map((registro) => {
+      if (dato.id == registro.id) {
+        arreglo[contador].personaje = dato.personaje;
+        arreglo[contador].anime = dato.anime;
+      }
+      contador++;
+    });
+    this.setState({ data: arreglo, modalActualizar: false });
+  };
+
+
+  
   render() {
     return (
       <>
